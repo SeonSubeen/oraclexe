@@ -8,11 +8,11 @@ SELECT 문
     데이터베이스에서 정보 검색 명령어
 */
 
---모든 열 선택 *
+-- 모든 열 선택 *
 SELECT *
 FROM departments;
 
---특정 열 선택 (프로젝션 Projection)
+-- 특정 열 선택 (프로젝션 Projection)
 SELECT department_id, location_id
 FROM departments;
 
@@ -98,7 +98,7 @@ DISTICT
 SELECT department_id
 FROM employees;
 
---중복 제거
+-- 중복 제거
 SELECT DISTINCT department_id
 FROM employees;
 
@@ -109,8 +109,3 @@ FROM employees;
 DESCRIBE employees;
 
 DESC employees;
-
-
-
-
-

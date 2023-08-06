@@ -81,7 +81,7 @@ SELECT last_name, (sysdate - hire_date) / 7 AS WEEKS
 FROM employees
 WHERE department_id = 90;
 
-
+ 
 /*
 날짜 조작 함수
     MONTHS_BETWEEN(date1, date2) : 두 날짜 간의 월 수를 계산합니다.

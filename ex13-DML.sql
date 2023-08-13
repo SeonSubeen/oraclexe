@@ -185,3 +185,4 @@ WHERE job_id = 'SA_REP'
 FOR UPDATE;
 
 COMMIT;
+ 

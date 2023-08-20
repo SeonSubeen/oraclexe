@@ -103,24 +103,27 @@ SELECT COUNT(*) FROM orders;
 
 CREATE INDEX orders_custno_idx ON orders(custno);
 
+-- 33503
 SELECT /*+ FULL(orders) */ MAX(orderdate)
 FROM orders
 WHERE custno BETWEEN 1 AND 100;
 
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
 
-
+-- 956
 SELECT /*+ INDEX(orders orders_custno_idx) */ MAX(orderdate)
 FROM orders
 WHERE custno BETWEEN 1 AND 100;
+
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
 
-
+-- 33503
 SELECT /*+ FULL(orders) */ MAX(orderdate)
 FROM orders
 WHERE custno BETWEEN 1 AND 5000;
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
 
+-- 50078
 SELECT /*+ INDEX(orders orders_custno_idx) */ MAX(orderdate)
 FROM orders
 WHERE custno BETWEEN 1 AND 5000;

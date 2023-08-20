@@ -24,6 +24,7 @@ DECLARE
     BEGIN
     DELETE FROM emp WHERE department_id = 10;
     DBMS_OUTPUT.PUT_LINE('처리 건수 : ' || TO_CHAR(SQL%ROWCOUNT)|| '건');
+    COMMIT;
     END;
 /
 
@@ -57,7 +58,6 @@ BEGIN
     LOOP
         FETCH emp_cursor INTO emp_record;
         EXIT WHEN emp_cursor%NOTFOUND;
-        
         DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_record.employee_id ||
                              ', Name: ' || emp_record.first_name || ' ' || emp_record.last_name ||
                              ', Salary: ' || emp_record.salary);
@@ -65,3 +65,5 @@ BEGIN
     CLOSE emp_cursor;
 END;
 /
+
+EXEC retrieve_high_salaries(18000);

@@ -12,7 +12,6 @@ FOR index in [REVERSE] 시작값 .. END값 LOOP
     STATEMENT 2
     ...
 END LOOP;
-
 */
 BEGIN
 	FOR I IN 1..4 LOOP
@@ -64,7 +63,7 @@ END LOOP;
 SET serveroutput ON;
 
 DECLARE
-    v_num NUMBER := 6; -- 시작숫자
+    v_num NUMBER := 2; -- 시작숫자
     v_tot_num NUMBER := 0; -- 총 loop수 반환 변수
 BEGIN
     LOOP
@@ -174,11 +173,8 @@ BEGIN
     COMMIT;
 END;
 /
---100	26400
+--100	24000 -> 26400
 SELECT employee_id, salary FROM employees
 WHERE salary > 5000;
 
 execute update_salaries(10);
-
-
-
